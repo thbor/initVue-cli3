@@ -4,12 +4,15 @@
 */
 import config from '../config'
 import axios from '../plugins/axios'
+
+const ip = config.authServer
 export const getAccessToken = {
-  url:  "/auth/getAccessToken",
+  url:  ip+"/auth/getAccessToken",
   method: "GET",
   params: {
     code: "",
-    redirect_uri: config.redirectUri
+    // redirect_uri: config.redirectUri
+    redirect:config.redirectUri
   }
 };
 export const refresh = {
@@ -18,6 +21,51 @@ export const refresh = {
   params: {
     refreshToken: ""
   }
+};
+/**
+ * @desc 获取用户信息
+ */
+export const getUserInfo = {
+  url: ip+"/auth/getUserInfo",
+  method: "GET",
+  params: {}
+};
+/**
+ * @desc 获取用户详细信息
+ * @param userId 工号
+ */
+export const CurrentInfo = {
+  url: "/userAndPermit/getCurrentUserInfo",
+  method: "GET",
+  params: {
+    userId: ""
+  }
+};
+/**
+ * @desc 查詢用戶權限
+ * @param {String} userNo 用戶ID
+ * @param {Number} isvalid 0 沒有權限,1 表示有權限,不傳查詢全部
+ */
+export const UserRoleList = {
+  url: "/userPower/queryUserPowerInfoByUserDTO",
+  method: "GET",
+  params: {
+    userNo: "",
+    isvalid: 1
+  }
+};
+export const Test = {
+  url:  "/Hello/getJson",
+  method: "GET",
+  params: {
+  }
+};
+/**
+ * @description 退出登录
+ */
+export const logout = () => {
+  window.sessionStorage.clear();
+  window.location.href = config.loginOutUri;
 };
 
 /**
@@ -45,10 +93,4 @@ export const getRefresh = () => {
   if (!refreshToken) toLogin();
   refresh.params.refreshToken = refreshToken;
   return axios(refresh);
-};
-export const Test = {
-  url:  "/Hello/getJson",
-  method: "GET",
-  params: {
-  }
 };

@@ -1,12 +1,13 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import wms from './wms'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
-    name: 'Layout',
+    children: wms,
     component: () => import('../components/layout/Layout.vue')
   },
   {
