@@ -1,5 +1,10 @@
 export default[
   {
+    path:"/home",
+    name:"Home",
+    component:() => import('../components/views/Home.vue')
+  },
+  {
     path:"/inManager",
     name:"InManager",
     component:() => import('../components/views/InManager.vue')

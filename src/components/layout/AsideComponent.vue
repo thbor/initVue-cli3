@@ -16,7 +16,7 @@
     >
        <el-menu-item :index="item.path" v-for="item in menus" :key="item.id">
         <template slot="title">
-          <img :src="require('../../../public/image/'+item.image+'.png')" class="mr">
+          <img :src="require('../../../public/image/'+item.image+'.png')" class="mr-1">
           <span>{{ item.title }}</span>
         </template>
        </el-menu-item>
@@ -97,8 +97,8 @@ export default {
 .el-menu-aside {
   border: 1px solid #FFFFFF;
   color: #505155;
-  text-align: center;
-   margin-top: 20px;
+  // text-align: center;
+  margin-top: 20px;
 }
 .el-aside {
   height: 100vh;
@@ -116,10 +116,8 @@ export default {
 .el-menu-item:hover{
     background: #EDF0F4 !important;
 }
-.mr{
+.mr-1{
   margin-right:1rem
 }
-img{
-  
-}
+
 </style>

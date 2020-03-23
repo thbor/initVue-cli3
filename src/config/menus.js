@@ -2,13 +2,22 @@ export default [
   {
     id: "a",
     powerId:0,
-    title: "入庫管理",
+    title: "主页",
     icon: "el-icon-s-order",
     image:"in",
-    path:"/inManager"
+    path:"/home"
   },
   {
     id: "b",
+    powerId:0,
+    title: "入庫管理",
+    icon: "el-icon-s-order",
+    image:"in",
+    path:"/InManager"
+  },
+  
+  {
+    id: "c",
     powerId:0,
     title: "出庫管理",
     icon: "el-icon-s-home",
@@ -16,7 +25,7 @@ export default [
     path: "/outManager"
   },
   {
-    id: "c",
+    id: "d",
     powerId:0,
     title: "抽查管理",
     icon: "el-icon-s-platform",
@@ -24,7 +33,7 @@ export default [
     path: "/checkManager"
   },
   {
-    id: "d",
+    id: "e",
     powerId:0,
     title: "綜合查詢",
     icon: "el-icon-s-data",

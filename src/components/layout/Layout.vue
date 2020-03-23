@@ -1,5 +1,5 @@
 <template>
-     <el-container style="height: 100vh;" id="divId">
+     <el-container style="height: 100vh;">
     <Aside :menuCollapse="asideCollapse" @select="onSelect" :screenWidth="screenWidth"/>
     <el-container>
       <el-header >

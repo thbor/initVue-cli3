@@ -1,12 +1,8 @@
 <template>
     <div>
       <div>
-        <div class="font-size-18 " :style="getMarginBottom(9)">仓库状态</div>
-        <div class="white" :style="getHeight(200)"></div>  
-      </div>
-      <div :style="getMarginTop(32)">
-        <div class="font-size-18 " :style="getMarginBottom(9)">仓库历史</div>
-        <div class="white" :style="getHeight(690)"></div> 
+        <div class="font-size-18 " :style="getMarginBottom(9)">新增入库</div>
+        <div class="white" :style="getHeight(950)"></div>  
       </div>
     
     </div>
@@ -28,7 +24,6 @@ export default {
   },
   mounted(){
     this.initScreenHeight = document.body.clientHeight
-    // if(this.screenHeight==0){this.screenHeight=document.body.clientHeight}
   },
   methods:{
     //计算高度占比
@@ -53,13 +48,6 @@ export default {
         marginBottom:mb+"px"+"!important"
       }
     },
-    getMarginTop(val){
-      let marginTop = this.getPercentHieght(val);
-      return {
-        marginTop:marginTop+"px"+"!important"
-      }
-    }
-
     
   }
 }
