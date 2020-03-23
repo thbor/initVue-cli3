@@ -8,7 +8,7 @@
       </el-header>
       <el-main>
         <div class="main">
-          <router-view />
+          <router-view  :screenHeight="screenHeight"/>
         </div>
       </el-main>
     </el-container>
@@ -36,6 +36,7 @@ export default {
       device:"Window",
       //当前设备，默认为Window，打开页面是判断是否为ipad，如果是ipad则不显示左边菜单栏
       screenWidth: document.body.clientWidth,//屏幕宽度
+      screenHeight:document.body.clientHeight,
     }
   },
   watch:{
@@ -44,7 +45,10 @@ export default {
     },
     screenWidth:function(val){ //监听屏幕宽度变化
     this.screenWidth = val;
-    console.log("val",this.screenWidth)
+    },
+    screenHeight:function(val){ //监听屏幕宽度变化
+    this.screenHeight = val;
+    console.log(this.screenHeight)
     }
   },
   mounted(){
@@ -75,6 +79,8 @@ export default {
         return (() => {
           window.screenWidth = document.body.clientWidth
           that.screenWidth = window.screenWidth
+          window.screenHeight = document.body.clientHeight
+          that.screenHeight = window.screenHeight
         })()
       }
     },
@@ -86,13 +92,11 @@ export default {
       }
     },
     getWindowInfo(){
-      this.$store.commit("setScreen");
       this.device = this.$store.state.screen.device;
     },
  
     showMenu() {
       //TODO 伸展菜单
-      console.log("123")
     },
     toLogin(){
       window.location.href = config.loginUri;
